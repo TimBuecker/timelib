@@ -62,6 +62,27 @@ int get_days_for_month(int month, int year, int tageDerMonate[])
     return tageDerMonate[-1];
 }
 
+int exists_date(int tag, int monat, int jahr)
+{
+    //Abfrage ob tag kleiner als 1 oder größer als 31
+    if(tag < 1 || tag > 31)
+    {
+        return -1;
+    }
+    //Abfrage ob monat kleiner als 1 oder größer als 12
+    if(monat < 1 || monat > 12)
+    {
+        return -1;
+    }
+    //Abfrage ob jahr kleiner als 1582 oder größer als 2400
+    if(jahr < 1582 || jahr > 2400)
+    {
+        return -1;
+    }
+
+    return 1;
+}
+
 //Startfunktion des Programms
 int main()
 {
@@ -100,8 +121,15 @@ int main()
     //Leeren des Speichers
     fflush(stdin);
 
-    int alleTage = day_of_the_year(tag, monat, jahr, tageDerMonate);
+    //Abfrage ob Daten inordnung sind
+    if (exists_date == -1)
+    {
+        printf("Nur Daten vom  01.01.1582 bis zum 31.12.2400 sind gueltig!\n")
+        //Abbruch des Programms
+        return -1
+    }
 
+    int alleTage = day_of_the_year(tag, monat, jahr, tageDerMonate);
 
     //Konsolenausgabe für die Tage des Jahres
     printf("Das Jahr %i hat bis zum %i.%i insgesamt %i Tage", jahr, tag, monat, alleTage);
