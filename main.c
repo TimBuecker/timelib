@@ -37,6 +37,24 @@ int day_of_the_year(int tag, int monat, int jahr, int tageDerMonate[])
     return alleTage;
 }
 
+int is_leapyear(int jahr)
+{
+    if (jahr % 4 == 0)
+    {
+        return 1;
+    }
+    else if (jahr % 4 != 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return -1;
+    }
+
+    return -1;
+}
+
 //Startfunktion des Programms
 int main()
 {
@@ -54,7 +72,7 @@ int main()
     fflush(stdin);
 
     //Abfrage ob das Jahr ein Schaltjahr ist
-    if(jahr % 4 == 0)
+    if(is_leapyear == 1)
     {
         //Initialisierung der Tage vom Februar, wenn Schaltjahr
         tageDesFebruars = 29;
