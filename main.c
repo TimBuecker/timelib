@@ -55,6 +55,13 @@ int is_leapyear(int jahr)
     return -1;
 }
 
+int get_days_for_month(int month, int year, int tageDerMonate[])
+{
+    //????
+
+    return tageDerMonate[-1];
+}
+
 //Startfunktion des Programms
 int main()
 {
