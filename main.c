@@ -1,12 +1,41 @@
 /*
-    Dieses Programm gibt dir die Tage des Eengegebenen Jahres aus!
+    Dieses Programm gibt dir die Tage des Eingegebenen Jahres aus!
     Autor: Tim Bücker
-    Datum: 11.01.2021
+    Datum: 25.01.2021
 */
 
 //Implementieren der Standartbibliotheken
 #include <stdio.h>
 #include <stdlib.h>
+
+int day_of_the_year(int tag, int monat, int jahr, int tageDerMonate[])
+{
+    int alleTage = 0;
+
+    //Abfrage ob der Monat überhaupt existiert
+    if(monat < 0 || monat > 12) {
+        printf("Der Monat existiert nicht!\n");
+    }
+
+    //Abfrage ob der Monat den Tag überhaupt besitzt
+    if(tag > tageDerMonate[monat-1])
+    {
+        tag = tageDerMonate[monat-1];
+        printf("Der Monat besitzt diesen Tag nicht!\n");
+        //Abbruch des Programms
+        return -1;
+    }
+
+    //Alle Tage des Jahres berechnen
+    for(int i = monat - 2; i >= 0; i--)
+    {
+        alleTage += tageDerMonate[i];
+    }
+    //Initalisierung der Tage des Monats
+    alleTage += tag;
+
+    return alleTage;
+}
 
 //Startfunktion des Programms
 int main()
@@ -16,10 +45,10 @@ int main()
     int monat = 0;
     int tag = 0;
     int tageDesFebruars = 28;
-    int alleTage = 0;
+
 
     //Konsoleneingabe des Jahres
-    printf("Bitte geben Sie ein Jahre ein: ");
+    printf("Bitte geben Sie ein Jahr ein: ");
     scanf("%i", &jahr);
     //Leeren des Speichers
     fflush(stdin);
@@ -46,22 +75,8 @@ int main()
     //Leeren des Speichers
     fflush(stdin);
 
-    //Abfrage ob der Monat den Tag überhaupt besitzt
-    if(tag > tageDerMonate[monat-1])
-    {
-        tag = tageDerMonate[monat-1];
-        printf("Der Monat besitzt diesen Tag nicht!");
-        //Abbruch des Programms
-        return 0;
-    }
+    int alleTage = day_of_the_year(tag, monat, jahr, tageDerMonate);
 
-    //Alle Tage des Jahres berechnen
-    for(int i = monat - 2; i >= 0; i--)
-    {
-        alleTage += tageDerMonate[i];
-    }
-    //Initalisierung der Tage des Monats
-    alleTage += tag;
 
     //Konsolenausgabe für die Tage des Jahres
     printf("Das Jahr %i hat bis zum %i.%i insgesamt %i Tage", jahr, tag, monat, alleTage);
