@@ -83,6 +83,30 @@ int exists_date(int tag, int monat, int jahr)
     return 1;
 }
 
+void input_date(int *zeigerJahr, int *zeigerMonat, int *zeigerTag){
+    do{
+        int tag = 0;
+        int monat = 0;
+        int jahr = 0;
+        printf("Bitte geben Sie das Jahr an: ");
+        scanf("%i", &jahr);
+        *zeigerJahr = jahr;
+        fflush(stdin);
+
+        printf("Bitte geben Sie den Monat ein: ");
+        scanf("%i", &monat);
+        *zeigerMonat = monat;
+        fflush(stdin);
+
+        printf("Bitte geben Sie den Tag ein: ");
+        scanf("%i", &tag);
+        *zeigerTag = tag;
+        fflush(stdin);
+    }
+    while(exists_date(*zeigerTag, *zeigerMonat, *zeigerJahr) != 1);
+
+}
+
 //Startfunktion des Programms
 int main()
 {
@@ -92,12 +116,14 @@ int main()
     int tag = 0;
     int tageDesFebruars = 28;
 
+    //Aufruf der Funktion für die Eingabe der Daten
+    input_date(&jahr, &monat, &tag);
 
     //Konsoleneingabe des Jahres
-    printf("Bitte geben Sie ein Jahr ein: ");
-    scanf("%i", &jahr);
+    //printf("Bitte geben Sie ein Jahr ein: ");
+    //scanf("%i", &jahr);
     //Leeren des Speichers
-    fflush(stdin);
+    //fflush(stdin);
 
     //Abfrage ob das Jahr ein Schaltjahr ist
     if(is_leapyear == 1)
@@ -110,23 +136,23 @@ int main()
     int tageDerMonate[12] = {31,tageDesFebruars,31,30,31,30,31,31,30,31,30,31};
 
     //Konsoleneingabe des Monats
-    printf("Bitte geben Sie den Monat ein: ");
-    scanf("%i", &monat);
+    //printf("Bitte geben Sie den Monat ein: ");
+    //scanf("%i", &monat);
     //Leeren des Speichers
     fflush(stdin);
 
     //Konsoleneingabe des Tages
-    printf("Bitte geben Sie den Tag ein: ");
-    scanf("%i", &tag);
+    //printf("Bitte geben Sie den Tag ein: ");
+    //scanf("%i", &tag);
     //Leeren des Speichers
     fflush(stdin);
 
     //Abfrage ob Daten inordnung sind
     if (exists_date == -1)
     {
-        printf("Nur Daten vom  01.01.1582 bis zum 31.12.2400 sind gueltig!\n")
+        printf("Nur Daten vom  01.01.1582 bis zum 31.12.2400 sind gueltig!\n");
         //Abbruch des Programms
-        return -1
+        return -1;
     }
 
     int alleTage = day_of_the_year(tag, monat, jahr, tageDerMonate);
