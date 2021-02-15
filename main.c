@@ -119,12 +119,6 @@ int main()
     //Aufruf der Funktion für die Eingabe der Daten
     input_date(&jahr, &monat, &tag);
 
-    //Konsoleneingabe des Jahres
-    //printf("Bitte geben Sie ein Jahr ein: ");
-    //scanf("%i", &jahr);
-    //Leeren des Speichers
-    //fflush(stdin);
-
     //Abfrage ob das Jahr ein Schaltjahr ist
     if(is_leapyear == 1)
     {
@@ -134,18 +128,6 @@ int main()
 
     //Daklarierung und Initialiserung der Varibale für die Max. Tage der Monate
     int tageDerMonate[12] = {31,tageDesFebruars,31,30,31,30,31,31,30,31,30,31};
-
-    //Konsoleneingabe des Monats
-    //printf("Bitte geben Sie den Monat ein: ");
-    //scanf("%i", &monat);
-    //Leeren des Speichers
-    fflush(stdin);
-
-    //Konsoleneingabe des Tages
-    //printf("Bitte geben Sie den Tag ein: ");
-    //scanf("%i", &tag);
-    //Leeren des Speichers
-    fflush(stdin);
 
     //Abfrage ob Daten inordnung sind
     if (exists_date == -1)
