@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1613383565 source:d:\programme\git\timelib\time.c
+1614679979 source:d:\programme\git\timelib\time.c
 	<stdio.h>
 	<stdlib.h>
 
-1613383536 source:d:\programme\git\timelib\main.c
+1614679907 source:d:\programme\git\timelib\main.c
 	<stdio.h>
 	<stdlib.h>
 	"time.h"
 
-1613383650 d:\programme\git\timelib\time.h
+1614679936 d:\programme\git\timelib\time.h
 

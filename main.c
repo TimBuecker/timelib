@@ -13,37 +13,18 @@
 //Startfunktion des Programms
 int main()
 {
-    //Daklarierung und Initialisierung der Varibalen
-    int jahr = 0;
-    int monat = 0;
+    //Deklarierung und Initialisierung der Variablen
     int tag = 0;
-    int tageDesFebruars = 28;
+    int monat = 0;
+    int jahr = 0;
+    int alleTage = 0;
 
-    //Aufruf der Funktion für die Eingabe der Daten
-    input_date(&jahr, &monat, &tag);
+    input_date(&tag, &monat, &jahr);
 
-    //Abfrage ob das Jahr ein Schaltjahr ist
-    if(is_leapyear == 1)
-    {
-        //Initialisierung der Tage vom Februar, wenn Schaltjahr
-        tageDesFebruars = 29;
-    }
-
-    //Daklarierung und Initialiserung der Varibale für die Max. Tage der Monate
-    int tageDerMonate[12] = {31,tageDesFebruars,31,30,31,30,31,31,30,31,30,31};
-
-    //Abfrage ob Daten inordnung sind
-    if (exists_date == -1)
-    {
-        printf("Nur Daten vom  01.01.1582 bis zum 31.12.2400 sind gueltig!\n");
-        //Abbruch des Programms
-        return -1;
-    }
-
-    int alleTage = day_of_the_year(tag, monat, jahr, tageDerMonate);
+    alleTage = day_of_the_year(tag, monat, jahr);
 
     //Konsolenausgabe für die Tage des Jahres
-    printf("Das Jahr %i hat bis zum %i.%i insgesamt %i Tage", jahr, tag, monat, alleTage);
+    printf("\n\nDas Jahr %i hat bis zum %i.%i insgesamt %i Tage \n", jahr, tag, monat, alleTage);
 
     return 0;
 }
