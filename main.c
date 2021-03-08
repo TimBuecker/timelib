@@ -19,12 +19,17 @@ int main()
     int jahr = 0;
     int alleTage = 0;
 
-    input_date(&tag, &monat, &jahr);
+    struct datum datum;
 
-    alleTage = day_of_the_year(tag, monat, jahr);
+    //Initialisierung des Structs Datum mit dem Eingabedatum
+    datum = input_date();
+
+    //Initialisierung der Variable mit den gesamten Tagen, des eingegebenen Datums
+    alleTage = day_of_the_year(datum);
 
     //Konsolenausgabe für die Tage des Jahres
-    printf("\n\nDas Jahr %i hat bis zum %i.%i insgesamt %i Tage \n", jahr, tag, monat, alleTage);
+    printf("\n\nDas Jahr %i hat bis zum %i.%i insgesamt %i Tage \n", datum.jahr, datum.tag, datum.monat, alleTage);
 
+    //Erfolgreiche Rückgabe des Programms
     return 0;
 }

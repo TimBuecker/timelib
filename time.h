@@ -7,14 +7,22 @@
 #ifndef TIME_H_INCLUDED
 #define TIME_H_INCLUDED
 
-int day_of_the_year(int tag, int monat, int jahr);
+struct datum {
+
+    int jahr;
+    int monat;
+    int tag;
+
+};
+
+int day_of_the_year(struct datum);
 
 int is_leapyear(int jahr);
 
-int get_days_for_month(int monat, int jahr);
+int get_days_for_month(struct datum);
 
-int exists_date(int tag, int monat, int jahr);
+int exists_date(struct datum);
 
-void input_date(int *zeigerTag, int *zeigerMonat, int *zeigerJahr);
+struct datum input_date();
 
 #endif // TIME_H_INCLUDED
