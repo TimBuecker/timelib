@@ -1,10 +1,10 @@
 /*
-    Dieses Programm gibt dir die Tage des Eingegebenen Jahres aus!
+    Dieses Programm gibt dir die Tage des eingegebenen Jahres aus!
     Autor: Tim Bücker
     Datum: 25.01.2021
 */
 
-//Implementieren der Standartbibliotheken
+//Implementieren der benötigten Bibliotheken
 #include <stdio.h>
 #include <stdlib.h>
 #include "time.h"
@@ -14,9 +14,6 @@
 int main()
 {
     //Deklarierung und Initialisierung der Variablen
-    int tag = 0;
-    int monat = 0;
-    int jahr = 0;
     int alleTage = 0;
 
     struct datum datum;
